@@ -1,0 +1,42 @@
+.romantic-message__inner {
+  display: flex;
+  justify-content: center;
+}
+
+.romantic-message__card {
+  width: min(100%, 720px);
+  padding: clamp(2rem, 5vw, 3.4rem);
+  border-radius: 26px;
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.06), rgba(20, 12, 26, 0.55));
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 0 40px rgba(255, 111, 156, 0.14), 0 20px 60px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+.romantic-message__date {
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.romantic-message__title {
+  font-size: clamp(1.9rem, 4.6vw, 2.7rem);
+  color: var(--white);
+  text-shadow: 0 0 26px var(--glow-rose);
+  margin-bottom: clamp(1.4rem, 4vw, 2.2rem);
+}
+
+.romantic-message__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  font-family: var(--font-romantic);
+  font-size: clamp(1.1rem, 2.6vw, 1.35rem);
+  color: var(--text-muted);
+  font-style: italic;
+  line-height: 1.85;
+}
+
+.romantic-message__body p:last-child {
+  color: var(--rose);
+}

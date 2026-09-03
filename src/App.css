@@ -1,0 +1,19 @@
+.app-main {
+  position: relative;
+  z-index: 2;
+}
+
+.heart-section {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: clamp(3rem, 8vh, 5rem);
+  padding-bottom: clamp(2.5rem, 6vh, 4rem);
+}
+
+.heart-section__inner {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

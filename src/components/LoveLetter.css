@@ -1,0 +1,107 @@
+.love-letter__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2.2rem;
+}
+
+.love-letter__stage {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  min-height: 320px;
+  align-items: center;
+  perspective: 1200px;
+}
+
+.envelope {
+  position: relative;
+  width: min(88vw, 320px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.envelope__glow {
+  position: absolute;
+  inset: -20%;
+  z-index: 0;
+  background: radial-gradient(closest-side, var(--glow-rose), transparent 70%);
+  filter: blur(4px);
+  animation: envelope-pulse 3.2s ease-in-out infinite;
+}
+
+@keyframes envelope-pulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .envelope__glow {
+    animation: none;
+    opacity: 0.7;
+  }
+}
+
+.envelope__svg {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  filter: drop-shadow(0 8px 30px rgba(255, 77, 109, 0.35));
+}
+
+.envelope__body {
+  fill: #17101d;
+  stroke: var(--rose);
+  stroke-width: 2;
+}
+
+.envelope__flap {
+  fill: none;
+  stroke: var(--rose-strong);
+  stroke-width: 2;
+}
+
+.envelope__fold {
+  fill: none;
+  stroke: rgba(255, 179, 198, 0.4);
+  stroke-width: 1.5;
+}
+
+.envelope__hint {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.letter-paper {
+  width: min(100%, 560px);
+  background: linear-gradient(170deg, #fdf6f2, #f4e6ea);
+  color: #241621;
+  border-radius: 8px;
+  padding: clamp(1.8rem, 5vw, 3rem);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px var(--glow-rose);
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  text-align: left;
+}
+
+.letter-paper p {
+  font-family: var(--font-romantic);
+  font-style: italic;
+  font-size: clamp(1.05rem, 2.4vw, 1.25rem);
+  line-height: 1.75;
+}
+
+.letter-paper__signature {
+  margin-top: 0.6rem;
+  text-align: right;
+  color: var(--red-deep);
+  font-weight: 500;
+}

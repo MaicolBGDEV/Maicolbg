@@ -1,0 +1,40 @@
+.photo-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: linear-gradient(160deg, #1a1220, #0c0a14);
+  box-shadow:
+    0 0 0 1.5px rgba(255, 255, 255, 0.55),
+    0 0 14px var(--glow-white),
+    0 0 26px var(--glow-rose),
+    0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.photo-frame--rounded {
+  border-radius: 16px;
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+}
+
+.photo-frame__fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--rose);
+  background: radial-gradient(circle at 50% 40%, #23142a, #0c0a14);
+}
+
+.photo-frame__sheen {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0) 40%);
+  pointer-events: none;
+}

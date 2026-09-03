@@ -1,0 +1,203 @@
+/* ============================================================
+   PALETA DE COLORES — cambia aquí para personalizar toda la web
+   ============================================================ */
+:root {
+  --bg: #080812;               /* fondo principal, casi negro */
+  --bg-elevate: #0e0e1c;       /* paneles / tarjetas */
+
+  --rose: #ffb3c6;             /* rosa suave */
+  --rose-strong: #ff6f9c;      /* rosa vivo (acento principal) */
+  --red-deep: #ff4d6d;         /* rojo rosado (acento secundario) */
+  --gold-glow: #ffe3ec;        /* brillo cálido casi blanco */
+
+  --white: #fdf9f6;            /* blanco cálido para texto principal */
+  --text-muted: #cbb9c3;       /* texto secundario */
+  --text-faint: #8d7f8b;       /* texto terciario / captions */
+
+  --glow-white: rgba(255, 255, 255, 0.55);
+  --glow-rose: rgba(255, 111, 156, 0.45);
+  --glow-red: rgba(255, 77, 109, 0.35);
+
+  --font-display: "Italiana", serif;              /* títulos cinematográficos */
+  --font-romantic: "Cormorant Garamond", serif;    /* mensajes / carta */
+  --font-ui: "Jost", sans-serif;                   /* botones, labels, UI */
+
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --container: min(1100px, 92vw);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+#root {
+  position: relative;
+  min-height: 100dvh;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  font-weight: 400;
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+}
+
+p {
+  margin: 0;
+  line-height: 1.7;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: var(--font-ui);
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: var(--rose-strong);
+  color: var(--bg);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--rose-strong), var(--red-deep));
+  border-radius: 10px;
+}
+
+/* ============================================================
+   UTILIDADES COMPARTIDAS
+   ============================================================ */
+
+.section {
+  position: relative;
+  width: 100%;
+  padding: clamp(4rem, 10vh, 7rem) 0;
+}
+
+.section-inner {
+  width: var(--container);
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--rose);
+  opacity: 0.85;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  color: var(--white);
+  text-shadow: 0 0 30px var(--glow-rose);
+}
+
+.glow-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.95rem 2.4rem;
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  color: var(--bg);
+  background: linear-gradient(135deg, var(--rose) 0%, var(--rose-strong) 55%, var(--red-deep) 100%);
+  box-shadow: 0 0 18px var(--glow-rose), 0 0 40px rgba(255, 111, 156, 0.25);
+  transition: transform 0.35s var(--ease-soft), box-shadow 0.35s var(--ease-soft);
+}
+
+.glow-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 0 26px var(--glow-rose), 0 0 60px rgba(255, 77, 109, 0.4);
+}
+
+.glow-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.glow-btn:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--rose-strong);
+  outline-offset: 3px;
+}
+
+.ghost-btn {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 0.7rem 1.6rem;
+  border-radius: 999px;
+  transition: border-color 0.3s var(--ease-soft), color 0.3s var(--ease-soft), box-shadow 0.3s var(--ease-soft);
+}
+
+.ghost-btn:hover {
+  color: var(--white);
+  border-color: var(--rose-strong);
+  box-shadow: 0 0 16px var(--glow-rose);
+}
+
+.frame-glow {
+  border-radius: 18px;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.5),
+    0 0 18px var(--glow-white),
+    0 0 34px var(--glow-rose);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 3.2rem 0;
+  }
+}
